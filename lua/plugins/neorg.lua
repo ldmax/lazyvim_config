@@ -6,8 +6,8 @@ return {
       require("neorg").setup({
         load = {
           ["core.defaults"] = {},
-          ["core.norg.concealer"] = {},
-          ["core.norg.dirman"] = {
+          ["core.concealer"] = {},
+          ["core.dirman"] = {
             config = {
               workspaces = {
                 default = "$HOME/norg",
