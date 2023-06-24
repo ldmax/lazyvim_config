@@ -1,6 +1,8 @@
 return {
   {
     "hkupty/iron.nvim",
+    tag = "v3.0",
+    pin = true,
     config = function()
       require("iron.core").setup({
         config = {

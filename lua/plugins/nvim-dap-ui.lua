@@ -1,6 +1,8 @@
 return {
   {
     "rcarriga/nvim-dap-ui",
+    tag = "v3.8.3",
+    pin = true,
     config = function()
       local dap = require("dap")
       local dapui = require("dapui")

@@ -1,6 +1,8 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    tag = "v0.6.0",
+    pin = true,
     config = function()
       require("dap").adapters.python = {
         type = "executable",
