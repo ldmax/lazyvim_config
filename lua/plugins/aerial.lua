@@ -1,6 +1,7 @@
 return {
   {
     "stevearc/aerial.nvim",
+    commit = "603c805d2d46deb3f9d492d829cc320ef0184d37",
     config = function()
       require("aerial").setup({
         -- optionally use on_attach to set keymaps when aerial has attached to a buffer
