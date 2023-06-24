@@ -18,3 +18,6 @@ vim.keymap.set("n", "<leader>ni", "<CMD>Neorg inject-metadata<CR>", opts)
 
 -- LazyGit shortcuts
 vim.keymap.set("n", "<leader>lg", "<CMD>LazyGit<CR>", opts)
+
+-- Telescope projects
+vim.keymap.set("n", "<leader>fp", "<CMD>Telescope projects<CR>", opts)

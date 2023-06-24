@@ -8,10 +8,5 @@ return {
       require("project_nvim").setup(opts)
       require("telescope").load_extension("projects")
     end,
-    keys = {
-      "<leader>fp",
-      "<Cmd>Telescope propjects<CR>",
-      desc = "Projects",
-    },
   },
 }
