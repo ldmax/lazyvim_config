@@ -7,17 +7,11 @@ local opts = { noremap = true, silent = true }
 -- map <leader>; to dashboard
 vim.keymap.set("n", "<leader>;", "<CMD>Alpha!<CR>", opts)
 
--- close current buffer
-vim.keymap.set("n", "<leader>c", "<CMD>bd!<CR>", opts)
-
 -- Neorg shortcuts
 vim.keymap.set("n", "<leader>nt", "<CMD>Neorg workspace trading<CR>", opts)
 vim.keymap.set("n", "<leader>nw", "<CMD>Neorg workspace work<CR>", opts)
 vim.keymap.set("n", "<leader>nj", "<CMD>Neorg journal custom<CR>", opts)
 vim.keymap.set("n", "<leader>ni", "<CMD>Neorg inject-metadata<CR>", opts)
-
--- LazyGit shortcuts
-vim.keymap.set("n", "<leader>lg", "<CMD>LazyGit<CR>", opts)
 
 -- Telescope projects
 vim.keymap.set("n", "<leader>fp", "<CMD>Telescope projects<CR>", opts)
