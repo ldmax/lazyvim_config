@@ -1,7 +1,7 @@
 return {
   {
     "nvim-neorg/neorg",
-    run = ":Neorg sysnc-parsers",
+    -- run = ":Neorg sysnc-parsers",
     config = function()
       require("neorg").setup({
         load = {
