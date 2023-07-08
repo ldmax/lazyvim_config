@@ -76,3 +76,6 @@ end
 
 -- disable default folding
 vim.opt.foldlevelstart = 99
+
+-- enable moving cursor freely in buffer
+vim.opt.ve = "all"
