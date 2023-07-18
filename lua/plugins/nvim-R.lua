@@ -8,6 +8,6 @@ return {
     if not status then
       return
     end
-    nvimr.setup({})
+    require(nvimr).setup({})
   end,
 }
