@@ -16,6 +16,9 @@ return {
               command = { "cmd" },
             },
             python = require("iron.fts.python").ipython,
+            ocaml = {
+              command = { "utop" },
+            },
           },
           -- How the repl window will be displayed
           -- See below for more information
