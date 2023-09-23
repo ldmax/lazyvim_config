@@ -2,7 +2,7 @@ return {
   {
     "github/copilot.vim",
     pin = true,
-    tag = "v1.9.0",
+    tag = "v1.10.2",
     config = function()
       -- if I'm on Vultr, comment out this proxy
       -- if I'm on thinkpad, open this proxy

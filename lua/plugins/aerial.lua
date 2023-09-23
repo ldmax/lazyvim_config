@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/aerial.nvim",
-    commit = "603c805d2d46deb3f9d492d829cc320ef0184d37",
+    commit = "a2368d1c4bdb149679fbcbd16a288e5e0bee8156",
     pin = true,
     config = function()
       require("aerial").setup({
