@@ -5,7 +5,7 @@
 local opts = { noremap = true, silent = true }
 
 -- map <leader>; to dashboard
-vim.keymap.set("n", "<leader>;", "<CMD>Alpha!<CR>", opts)
+vim.keymap.set("n", "<leader>;", "<CMD>Dashboard<CR>", opts)
 
 -- Neorg shortcuts
 vim.keymap.set("n", "<leader>nt", "<CMD>Neorg workspace trading<CR>", opts)
