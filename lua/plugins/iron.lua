@@ -19,6 +19,7 @@ return {
             ocaml = {
               command = { "utop" },
             },
+            js = { "node" },
           },
           -- How the repl window will be displayed
           -- See below for more information
