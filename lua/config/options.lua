@@ -79,3 +79,16 @@ vim.opt.foldlevelstart = 99
 
 -- enable moving cursor freely in buffer
 -- vim.opt.ve = "all"
+
+-- set pwsh as nvim terminal when OS is windows
+if vim.fn.exists("g:os") == 0 then
+  local is_windows = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 or vim.fn.has("win16") == 1
+  if is_windows then
+    vim.cmd([[
+      set shell=pwsh
+      set shellcmdflag=-command
+      set shellquote=\"
+      set shellxquote=
+    ]])
+  end
+end
