@@ -90,5 +90,7 @@ if vim.fn.exists("g:os") == 0 then
       set shellquote=\"
       set shellxquote=
     ]])
+
+    vim.g.python3_host_prog = "C:/Program Files/Python310/python.exe"
   end
 end
