@@ -104,6 +104,9 @@ return {
           { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
         )
       end
+
+      -- for adapters
+      require("dap-python").setup(vim.g.python3_host_prog)
     end,
   },
 }
