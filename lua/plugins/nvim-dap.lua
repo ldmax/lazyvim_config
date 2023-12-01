@@ -104,6 +104,14 @@ return {
           { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
         )
       end
+
+      -- for adapters
+      local path = require("mason-registry").get_package("debugpy"):get_install_path()
+      if vim.loop.os_uname().sysname:find("Windows") then
+        require("dap-python").setup(path .. "/venv/Scripts/pythonw")
+      else
+        require("dap-python").setup(path .. "/venv/bin/python")
+      end
     end,
   },
 }
