@@ -85,12 +85,12 @@ if vim.fn.exists("g:os") == 0 then
   local is_windows = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 or vim.fn.has("win16") == 1
   if is_windows then
     vim.cmd([[
-      set shell=pwsh
-      set shellcmdflag=-command
-      set shellquote=\"
-      set shellxquote=
+    set shell=pwsh
+    set shellcmdflag=-command
+    set shellquote=\"
+    set shellxquote=
     ]])
 
-    vim.g.python3_host_prog = "C:/Program Files/Python310/python.exe"
+    vim.g.python3_host_prog = "C:/Program Files/Python310/pythonw.exe"
   end
 end
