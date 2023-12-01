@@ -1,19 +1,21 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    tag = "v0.6.0",
+    tag = "v0.7.0",
     pin = true,
     config = function()
+      local py_exe = "/usr/bin/python3"
+      if vim.fn.exists("g:os") == 0 then
+        local is_windows = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 or vim.fn.has("win16") == 1
+        if is_windows then
+          py_exe = "C:/Program Files/Python310/python.exe"
+        end
+      end
       require("dap").adapters.python = {
         type = "executable",
-        command = "/usr/bin/python3",
+        command = py_exe,
         args = { "-m", "debugpy.adapter" },
-      }
-
-      require("dap").adapters.python = {
-        type = "executable",
-        command = "/usr/bin/python3",
-        args = { "-m", "debugpy.adapter" },
+        enrich_config = function() end,
       }
 
       require("dap").configurations.python = {
@@ -28,7 +30,7 @@ return {
           -- for supported options
 
           program = "${file}", -- This configuration will launch the current file if used.
-          pythonPath = "/usr/bin/python3",
+          pythonPath = py_exe,
         },
       }
     end,
