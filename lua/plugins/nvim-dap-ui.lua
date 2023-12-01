@@ -1,6 +1,7 @@
 return {
   {
     "rcarriga/nvim-dap-ui",
+    -- stylua: ignore
     tag = "v3.9.1",
     pin = true,
     -- stylua: ignore
