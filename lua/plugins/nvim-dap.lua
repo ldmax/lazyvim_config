@@ -107,11 +107,11 @@ return {
       end
       -- [[  set icons end  ]]
 
-      -- [[configure python using nvim-dap-python]]
-      -- function to get python executable path
-      -- could be windows or linux
-      -- could be venv or global
+      -- [[  configure python using nvim-dap-python start  ]]
       local get_python_path = function()
+        -- function to get python executable path
+        -- could be windows or linux
+        -- could be venv or global
         local venv_path = os.getenv("VIRTUAL_ENV")
         local is_windows = vim.loop.os_uname().sysname:find("Windows")
         local folder
@@ -138,20 +138,7 @@ return {
       end
 
       require("dap-python").setup(get_python_path())
-      -- if vim.loop.os_uname().sysname:find("Windows") then
-      --   require("dap-python").setup(vim.g.python3_host_prog)
-      -- else
-      --   local virtualenvs = "~/.virtualenvs"
-      --   -- if ~/.virtualenvs/ does not exist, create first
-      --   if not vim.fn.isdirectory(virtualenvs) then
-      --     vim.fn.system(
-      --       "cd ~; mkdir .virtualenvs; cd .virtualenvs; python3 -m venv debugpy; debugpy/bin/python -m pip install debugpy"
-      --     )
-      --   end
-      --
-      --   -- require dap-python setup using python executable in that virtualenv
-      --   require("dap-python").setup(virtualenvs .. "/debugpy/bin/python")
-      -- end
+      -- [[  configure python using nvim-dap-python end  ]]
     end,
   },
 }
