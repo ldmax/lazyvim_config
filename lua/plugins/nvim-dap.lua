@@ -107,27 +107,33 @@ return {
       end
       -- [[  set icons end  ]]
 
-      -- [[config python using nvim-dap-python]]
+      -- [[configure python using nvim-dap-python]]
       -- function to get python executable path
       -- could be windows or linux
       -- could be venv or global
       local get_python_path = function()
         local venv_path = os.getenv("VIRTUAL_ENV")
-        if venv_path then
-          local util_sys = require("dap-install.utils.sys")
-          if util_sys.is_windows() then
-            return venv_path .. "\\Scripts\\python.exe"
-          end
-          return venv_path .. "/bin/python"
+        local is_windows = vim.loop.os_uname().sysname:find("Windows")
+        local folder
+        if is_windows then
+          folder = "Scripts"
+        else
+          folder = "bin"
         end
 
-        local cwd = vim.fn.getcwd()
-        if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
-          return cwd .. "/venv/bin/python"
-        elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
-          return cwd .. "/.venv/bin/python"
-        else
-          return "/usr/bin/python3"
+        if venv_path then -- system level virtual env
+          return venv_path .. "/" .. folder .. "/python"
+        else -- current working directory virtual env
+          local cwd = vim.fn.getcwd()
+          local venv_exe1 = cwd .. "/venv/" .. folder .. "/python"
+          local venv_exe2 = cwd .. "/.venv/" .. folder .. "/python"
+          if vim.fn.executable(venv_exe1) == 1 then
+            return venv_exe1
+          elseif vim.fn.executable(venv_exe2) == 1 then
+            return venv_exe2
+          else
+            return vim.g.python3_host_prog
+          end
         end
       end
 
