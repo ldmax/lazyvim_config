@@ -94,6 +94,7 @@ return {
     },
 
     config = function()
+      -- [[  set icons start  ]]
       local Config = require("lazyvim.config")
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
@@ -104,10 +105,47 @@ return {
           { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
         )
       end
+      -- [[  set icons end  ]]
 
-      if vim.loop.os_uname().sysname:find("Windows") then
-        require("dap-python").setup(vim.g.python3_host_prog)
+      -- [[config python using nvim-dap-python]]
+      -- function to get python executable path
+      -- could be windows or linux
+      -- could be venv or global
+      local get_python_path = function()
+        local venv_path = os.getenv("VIRTUAL_ENV")
+        if venv_path then
+          local util_sys = require("dap-install.utils.sys")
+          if util_sys.is_windows() then
+            return venv_path .. "\\Scripts\\python.exe"
+          end
+          return venv_path .. "/bin/python"
+        end
+
+        local cwd = vim.fn.getcwd()
+        if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+          return cwd .. "/venv/bin/python"
+        elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+          return cwd .. "/.venv/bin/python"
+        else
+          return "/usr/bin/python3"
+        end
       end
+
+      require("dap-python").setup(get_python_path())
+      -- if vim.loop.os_uname().sysname:find("Windows") then
+      --   require("dap-python").setup(vim.g.python3_host_prog)
+      -- else
+      --   local virtualenvs = "~/.virtualenvs"
+      --   -- if ~/.virtualenvs/ does not exist, create first
+      --   if not vim.fn.isdirectory(virtualenvs) then
+      --     vim.fn.system(
+      --       "cd ~; mkdir .virtualenvs; cd .virtualenvs; python3 -m venv debugpy; debugpy/bin/python -m pip install debugpy"
+      --     )
+      --   end
+      --
+      --   -- require dap-python setup using python executable in that virtualenv
+      --   require("dap-python").setup(virtualenvs .. "/debugpy/bin/python")
+      -- end
     end,
   },
 }
