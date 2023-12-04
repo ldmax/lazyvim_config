@@ -1,6 +1,6 @@
 return {
   {
-    "iulas-reineke/headlines.nvim",
+    "lukas-reineke/headlines.nvim",
     config = function()
       require("headlines").setup({
         norg = {
