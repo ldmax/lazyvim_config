@@ -1,5 +1,14 @@
 return {
   {
+    -- below is configuration for copilot.lua
+    -- "zbirenbaum/copilot.lua",
+    -- cmd = "Copilot",
+    -- event = "InsertEnter",
+    -- config = function()
+    --   require("copilot").setup({})
+    -- end,
+    -- below is configurtion for copilot.vim
+    -- note that copilot-status.lua works only for copilot.vim for now (20231205)
     "github/copilot.vim",
     pin = true,
     tag = "v1.10.2",
