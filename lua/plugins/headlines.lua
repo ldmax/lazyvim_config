@@ -6,6 +6,9 @@ return {
         norg = {
           headline_highlights = false,
         },
+        markdown = {
+          headline_highlights = false,
+        },
       })
     end,
   },
