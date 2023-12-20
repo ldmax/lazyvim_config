@@ -49,6 +49,11 @@ return {
         },
         ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
       })
+
+      -- set shortcut for IronAttach and IronHide and IronFocus
+      vim.api.nvim_set_keymap("n", "<leader>ia", ":IronAttach<CR>", { noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>ih", ":IronHide<CR>", { noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>if", ":IronFocus<CR>", { noremap = true })
     end,
   },
 }
