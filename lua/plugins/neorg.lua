@@ -1,12 +1,13 @@
 return {
   {
     "nvim-neorg/neorg",
-    tag = "v6.0.0",
+    tag = "v6.2.0",
     pin = true,
-    -- run = ":Neorg sysnc-parsers",
+    run = ":Neorg sysnc-parsers",
     config = function()
       require("neorg").setup({
         load = {
+          -- ["external.gtd-project-tags"] = {},
           ["core.defaults"] = {},
           ["core.concealer"] = {},
           ["core.ui.calendar"] = {},
