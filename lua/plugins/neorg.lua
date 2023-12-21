@@ -25,7 +25,6 @@ return {
               default_workspace = "default",
             },
           },
-          ["external.gtd-project-tags"] = {},
         },
       })
     end,
