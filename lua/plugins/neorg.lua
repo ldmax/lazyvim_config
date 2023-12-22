@@ -7,7 +7,6 @@ return {
     config = function()
       require("neorg").setup({
         load = {
-          -- ["external.gtd-project-tags"] = {},
           ["core.defaults"] = {},
           ["core.concealer"] = {},
           ["core.ui.calendar"] = {},
