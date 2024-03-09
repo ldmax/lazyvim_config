@@ -1,8 +1,8 @@
 return {
   {
     "nvim-neorg/neorg",
-    tag = "v6.2.0",
-    pin = true,
+    -- tag = "v7.0.0",
+    -- pin = true,
     run = ":Neorg sysnc-parsers",
     config = function()
       require("neorg").setup({
