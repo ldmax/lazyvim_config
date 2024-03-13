@@ -13,7 +13,6 @@ return {
     pin = true,
     tag = "v1.10.2",
     config = function()
-      -- if I'm on Vultr, comment out this proxy
       -- if I'm on thinkpad, open this proxy
       if vim.fn.hostname() == "dan" then
         vim.g.copilot_proxy = "localhost:20171"
