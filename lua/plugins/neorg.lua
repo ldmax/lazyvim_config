@@ -4,6 +4,16 @@ return {
     -- tag = "v7.0.0",
     -- pin = true,
     run = ":Neorg sysnc-parsers",
+    dependencies = {
+      {
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
+      },
+      "nvim-treesitter/nvim-treesitter",
+    },
+    lazy = false,
+    version = "*",
     config = function()
       require("neorg").setup({
         load = {
