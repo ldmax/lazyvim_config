@@ -1,8 +1,6 @@
 return {
   {
     "nvim-neorg/neorg",
-    -- tag = "v7.0.0",
-    -- pin = true,
     run = ":Neorg sysnc-parsers",
     dependencies = {
       {
