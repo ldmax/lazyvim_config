@@ -43,4 +43,8 @@ require("lazy").setup({
       },
     },
   },
+  -- add border to floating windows
+  ui = {
+    border = "rounded",
+  },
 })
