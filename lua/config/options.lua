@@ -94,6 +94,8 @@ if vim.fn.exists("g:os") == 0 then
     -- meaning it's company laptop
     if vim.fn.hostname() == "LTCN1214420" then
       vim.g.python3_host_prog = "C:/Users/m310131/AppData/Local/Programs/Python/Python312/pythonw.exe"
+    elseif vim.fn.hostname() == "lidanmax" then
+      vim.g.python3_host_prog = "F:/python396/pythonw.exe"
     end
   end
 end
