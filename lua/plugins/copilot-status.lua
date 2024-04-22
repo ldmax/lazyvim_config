@@ -1,5 +1,6 @@
 return {
   "ofseed/copilot-status.nvim",
+  version = "*",
   config = function()
     require("lualine").setup({
       sections = {

@@ -2,8 +2,9 @@ return {
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
-    pin = true,
-    commit = "62443c9eb261e641d20af143357b157e3f542bb5",
+    version = "*",
+    -- pin = true,
+    -- commit = "62443c9eb261e641d20af143357b157e3f542bb5",
     config = function()
       require("chatgpt").setup({
         chat = {

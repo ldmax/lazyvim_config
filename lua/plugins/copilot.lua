@@ -10,8 +10,9 @@ return {
     -- below is configurtion for copilot.vim
     -- note that copilot-status.lua works only for copilot.vim for now (20231205)
     "github/copilot.vim",
-    pin = true,
-    tag = "v1.10.2",
+    -- pin = true,
+    -- tag = "v1.10.2",
+    version = "*",
     config = function()
       -- if I'm on thinkpad, open this proxy
       if vim.fn.hostname() == "dan" then

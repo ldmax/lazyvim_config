@@ -1,6 +1,7 @@
 return {
   {
     "lukas-reineke/headlines.nvim",
+    version = "*",
     config = function()
       require("headlines").setup({
         norg = {
