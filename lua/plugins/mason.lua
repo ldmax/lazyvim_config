@@ -2,6 +2,7 @@
 return {
   {
     "williamboman/mason.nvim",
+    version = "*",
     opts = {
       ui = {
         border = "rounded",
