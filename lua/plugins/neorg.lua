@@ -21,14 +21,12 @@ return {
           ["core.dirman"] = {
             config = {
               workspaces = {
-                default = "$HOME/norg",
+                default = "$HOME/work",
+                life = "$HOME/life",
                 work = "$HOME/norg/work",
-                home = "$HOME/norg/home",
                 plan = "$HOME/norg/plan",
                 trading = "$HOME/norg/trading",
-                journal = "$HOME/norg/journal",
-                org = "$HOME/org-roam",
-                nvim = "$HOME/norg/nvim",
+                tech = "$HOME/norg/tech",
               },
               default_workspace = "default",
             },
