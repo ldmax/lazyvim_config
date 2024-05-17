@@ -18,6 +18,11 @@ return {
           ["core.defaults"] = {},
           ["core.concealer"] = {},
           ["core.ui.calendar"] = {},
+          ["core.completion"] = {
+            config = {
+              engine = "nvim-cmp",
+            },
+          },
           ["core.dirman"] = {
             config = {
               workspaces = {
