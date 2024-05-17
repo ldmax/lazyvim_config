@@ -75,7 +75,8 @@ if vim.g.neovide then
 end
 
 -- disable default folding
--- vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.foldmethod = "manual"
 
 -- enable moving cursor freely in buffer
 -- vim.opt.ve = "all"
