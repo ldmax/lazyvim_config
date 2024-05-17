@@ -36,6 +36,13 @@ return {
               default_workspace = "default",
             },
           },
+          ["core.presenter"] = {
+            config = {
+              zen_mode = "zen-mode",
+            },
+          },
+          ["core.export"] = {},
+          ["core.looking-glass"] = {},
         },
       })
     end,
