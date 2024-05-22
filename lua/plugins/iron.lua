@@ -33,7 +33,7 @@ return {
           send_motion = "<space>sc",
           visual_send = "<space>vs",
           send_file = "<space>sf",
-          send_line = "<space>sll",
+          send_line = "<space>pl",
           send_mark = "<space>sm",
           mark_motion = "<space>mc",
           mark_visual = "<space>mc",
