@@ -9,8 +9,6 @@ local js_based_languages = {
 return {
   {
     "mfussenegger/nvim-dap",
-    -- tag = "0.7.0",
-    -- pin = true,
     version = "*",
     dependencies = {
 

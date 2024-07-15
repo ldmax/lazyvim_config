@@ -2,6 +2,7 @@ return {
   {
     -- below is configuration for copilot.lua
     "zbirenbaum/copilot.lua",
+    version = "*",
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()

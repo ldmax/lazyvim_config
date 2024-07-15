@@ -1,8 +1,6 @@
 return {
   {
     "jbyuki/venn.nvim",
-    -- commit = "c114563960b8fb1197695d42798d1f3e7190b798",
-    -- pin = true,
     version = "*",
     config = function()
       function _G.Toggle_venn()
