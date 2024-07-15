@@ -25,7 +25,6 @@ return {
           { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
           { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
         },
-        opts = {},
         config = function(_, opts)
           -- setup dap config by VsCode launch.json file
           -- require("dap.ext.vscode").load_launchjs()
@@ -47,7 +46,6 @@ return {
       -- virtual text for the debugger
       {
         "theHamsta/nvim-dap-virtual-text",
-        opts = {},
       },
 
       -- which key integration
@@ -56,7 +54,7 @@ return {
         optional = true,
         opts = {
           defaults = {
-            ["<leader>d"] = { name = "+debug" },
+            { "<leader>d", group = "debug" },
           },
         },
       },
