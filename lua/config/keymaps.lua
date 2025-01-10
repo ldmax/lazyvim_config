@@ -16,3 +16,6 @@ vim.keymap.set("n", "<leader>wl", "<CMD>Neorg keybind all core.looking-glass.mag
 
 -- Telescope projects
 vim.keymap.set("n", "<leader>fp", "<CMD>Telescope projects<CR>", opts)
+
+-- return to normal mode from insert mode in iron repl
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", opts)
