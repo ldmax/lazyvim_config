@@ -4,7 +4,7 @@
 
 local options = {
   backup = false, -- creates a backup file
-  clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+  clipboard = "unnamedplus", -- allows copy/paste between remote neovim and local PC
   cmdheight = 2, -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 1, -- so that `` is visible in markdown files
@@ -101,7 +101,7 @@ if vim.fn.exists("g:os") == 0 then
   end
 end
 
--- enable copy-paste to local
+-- Configure OSC 52 clipboard with timeout to prevent hanging
 vim.g.clipboard = {
   name = "OSC 52",
   copy = {
@@ -109,7 +109,20 @@ vim.g.clipboard = {
     ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
   },
   paste = {
-    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    ["+"] = function()
+      return vim.split(vim.fn.getreg("+"), "\n"), vim.fn.getregtype("+")
+    end,
+    ["*"] = function()
+      return vim.split(vim.fn.getreg("*"), "\n"), vim.fn.getregtype("*")
+    end,
   },
 }
+
+-- Set OSC 52 timeout to prevent hanging (1 second)
+vim.o.ttimeoutlen = 100
+
+-- add white borders to windows
+vim.cmd([[
+  highlight VertSplit ctermfg=white guifg=white
+  highlight WinSeparator ctermfg=white guifg=white
+]])
