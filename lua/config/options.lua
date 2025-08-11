@@ -4,7 +4,7 @@
 
 local options = {
   backup = false, -- creates a backup file
-  clipboard = "unnamedplus", -- allows copy/paste between remote neovim and local PC
+  -- clipboard = "unnamedplus", -- disabled in favor of custom OSC 52 configuration below
   cmdheight = 2, -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 1, -- so that `` is visible in markdown files
@@ -101,7 +101,7 @@ if vim.fn.exists("g:os") == 0 then
   end
 end
 
--- Configure OSC 52 clipboard with timeout to prevent hanging
+-- Configure OSC 52 clipboard for remote access via mosh/ssh
 vim.g.clipboard = {
   name = "OSC 52",
   copy = {
@@ -109,12 +109,8 @@ vim.g.clipboard = {
     ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
   },
   paste = {
-    ["+"] = function()
-      return vim.split(vim.fn.getreg("+"), "\n"), vim.fn.getregtype("+")
-    end,
-    ["*"] = function()
-      return vim.split(vim.fn.getreg("*"), "\n"), vim.fn.getregtype("*")
-    end,
+    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
   },
 }
 
