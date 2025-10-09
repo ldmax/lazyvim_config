@@ -11,7 +11,8 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     lazy = false,
-    version = "*",
+    -- version = "*",
+    version = false,
     config = function()
       require("neorg").setup({
         load = {
