@@ -22,7 +22,7 @@ return {
     workspaces = {
       {
         name = "san_trading",
-        path = "~/projects/san_trading_notes",
+        path = "~/projects/trading_notes",
       },
     },
 
