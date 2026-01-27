@@ -4,8 +4,8 @@
 
 local options = {
   backup = false, -- creates a backup file
-  -- clipboard = "unnamedplus", -- disabled in favor of custom OSC 52 configuration below
-  cmdheight = 2, -- more space in the neovim command line for displaying messages
+  clipboard = "unnamedplus", -- sync with system clipboard (uses OSC 52 provider defined below)
+  cmdheight = 0, -- hide command line, messages show as floating window
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 1, -- so that `` is visible in markdown files
   fileencoding = "utf-8", -- the encoding written to a file
@@ -102,20 +102,31 @@ if vim.fn.exists("g:os") == 0 then
 end
 
 -- Configure OSC 52 clipboard for remote access via mosh/ssh
+-- Copy: sends to local system clipboard via OSC 52 + caches locally for Neovim paste
+-- Paste: uses cached content (no timeout); for external content use Ctrl+Shift+V
+local osc52_cache = { lines = {}, regtype = "" }
+
 vim.g.clipboard = {
   name = "OSC 52",
   copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    ["+"] = function(lines, regtype)
+      require("vim.ui.clipboard.osc52").copy("+")(lines, regtype)
+      osc52_cache = { lines = lines, regtype = regtype }
+    end,
+    ["*"] = function(lines, regtype)
+      require("vim.ui.clipboard.osc52").copy("*")(lines, regtype)
+      osc52_cache = { lines = lines, regtype = regtype }
+    end,
   },
   paste = {
-    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    ["+"] = function()
+      return osc52_cache.lines, osc52_cache.regtype
+    end,
+    ["*"] = function()
+      return osc52_cache.lines, osc52_cache.regtype
+    end,
   },
 }
-
--- Set OSC 52 timeout to prevent hanging (1 second)
-vim.o.ttimeoutlen = 100
 
 -- add white borders to windows
 vim.cmd([[
